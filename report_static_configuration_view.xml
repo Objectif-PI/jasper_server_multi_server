@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+		##############################################################################
+		#
+		#    OpenERP, Open Source Management Solution
+		#    Copyright (C) 2014 Objectif-PI ([http://www.objectif-pi.com]).
+		#       Damien CRIER [damien.crier@objectif-pi.com]
+		#
+		#    This program is free software: you can redistribute it and/or modify
+		#    it under the terms of the GNU Affero General Public License as
+		#    published by the Free Software Foundation, either version 3 of the
+		#    License, or (at your option) any later version.
+		#
+		#    This program is distributed in the hope that it will be useful,
+		#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+		#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		#    GNU Affero General Public License for more details.
+		#
+		#    You should have received a copy of the GNU Affero General Public License
+		#    along with this program.  If not, see [http://www.gnu.org/licenses/].
+		#
+		##############################################################################
+
+        <record id="view_report_static_configuration_tree" model="ir.ui.view">
+        	<field name="name">report_static_configuration tree</field>
+            <field name="model">report.static.configuration</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+               	<tree>
+               		<field name="name"/>
+               		<field name="value"/>
+               	</tree>
+            </field>
+        </record>
+
+        <record id="view_report_static_configuration_form" model="ir.ui.view">
+        	<field name="name">report_static_configuration form</field>
+            <field name="model">report.static.configuration</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+               	<form>
+               		<field name="name" colspan="4"/>
+               		<separator string="Value" colspan="4"/>
+               		<field name="value" colspan="4" nolabel="1" required="1"/>
+               	</form>
+            </field>
+        </record>
+
+        <record id="view_report_static_configuration_search" model="ir.ui.view">
+            <field name="name">report_static_configuration search</field>
+            <field name="model">report.static.configuration</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+               	<search>
+               		<field name="name"/>
+               		<field name="value"/>
+               	</search>
+            </field>
+        </record>
+        
+        
+        <record model="ir.actions.act_window" id="act_open_report_static_configuration_view">
+            <field name="name">Report Static Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">report.static.configuration</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <menuitem id="menu_report_static_configuration" 
+            parent="jasper_server.menu_jasper"
+            sequence="20"
+            action="act_open_report_static_configuration_view"/>
+    </data>
+</openerp>
